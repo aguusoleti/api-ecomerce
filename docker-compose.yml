@@ -1,0 +1,23 @@
+version: '3.3'
+
+# psql -h  localhost -d Lets_Print -U postgres
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=Lets_Print
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=aguusoleti
+    ports:
+      - 5432:5432
+    volumes:
+      - ./posgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=aguusoleti@letsprint.com
+      - PGADMIN_DEFAULT_PASSWORD=11g22st33n
+    ports:
+      - 5050:80
